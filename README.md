@@ -11,4 +11,4 @@ A directive that can easily be used on text areas/fields and automatically trunc
 
 *Result:*
 
-![image](http://)
+![image](https://raw.githubusercontent.com/doukasd/AngularJS-Components/master/dd-collapse-text/dd-collapse-text-result.png)
