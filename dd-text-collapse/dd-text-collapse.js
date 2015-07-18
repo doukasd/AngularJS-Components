@@ -1,6 +1,6 @@
 // a directive to auto-collapse long text
 // in elements with the "dd-text-collapse" attribute
-app.directive('ddTextCollapse', ['$compile', function($compile) {
+angular.module('random-components', []).directive('ddTextCollapse', ['$compile', function($compile) {
 
     return {
         restrict: 'A',
