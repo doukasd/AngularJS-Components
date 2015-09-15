@@ -1,5 +1,6 @@
 // a directive to auto-collapse long text
 // in elements with the "dd-text-collapse" attribute
+// default: escape text - turn off with dd-text-collapse-escape="false"
 app.directive('ddTextCollapse', ['$compile', function($compile) {
 
     return {
@@ -9,18 +10,40 @@ app.directive('ddTextCollapse', ['$compile', function($compile) {
 
             // start collapsed
             scope.collapsed = false;
-
+            
             // create the function to toggle the collapse
             scope.toggle = function() {
                 scope.collapsed = !scope.collapsed;
             };
 
+
+            scope.entityMap = {
+                "&": "&amp;",
+                "<": "&lt;",
+                ">": "&gt;",
+                '"': '&quot;',
+                "'": '&#39;',
+                "/": '&#x2F;'
+            };
+
+            scope.escapeHtml = function(string) {
+                return String(string).replace(/[&<>"'\/]/g, function (s) {
+                    return scope.entityMap[s];
+                });
+            }
+
             // wait for changes on the text
             attrs.$observe('ddTextCollapseText', function(text) {
-
                 // get the length from the attributes
                 var maxLength = scope.$eval(attrs.ddTextCollapseMaxLength);
-
+                // check dd-text-collapse-escape attribute and use true as default
+                var escape = scope.$eval(attrs.ddTextCollapseEscape);
+                if( typeof(escape) == "undefined" ) {
+                    escape = true;
+                }
+                if( escape ) {
+                    text = scope.escapeHtml( text );
+                }
                 if (text.length > maxLength) {
                     // split the text in two parts, the first always showing
                     var firstPart = String(text).substring(0, maxLength);

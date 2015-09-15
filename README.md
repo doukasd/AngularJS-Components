@@ -10,3 +10,9 @@ Thanks to [@micabot](https://github.com/micabot) for the improvements.
 *Result:*
 
 ![image](https://raw.githubusercontent.com/doukasd/AngularJS-Components/master/dd-text-collapse/dd-text-collapse-result.png)
+
+*HTML Escape:*
+
+All content is html escaped. 
+Turn off escaping content by using
+	dd-text-collapse-escape="false"
