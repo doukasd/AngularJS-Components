@@ -16,3 +16,9 @@ Thanks to [@micabot](https://github.com/micabot) for the improvements.
 All content is html escaped. 
 Turn off escaping content by using
 	dd-text-collapse-escape="false"
+
+*Auto newline to <br> Feature:*
+
+If expanded, all newlines are converted to <br>
+Turn off nl2br content by using
+	dd-text-collapse-nl2br="false"
