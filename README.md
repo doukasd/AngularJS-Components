@@ -17,8 +17,8 @@ All content is html escaped.
 Turn off escaping content by using
 	dd-text-collapse-escape="false"
 
-*Auto newline to <br> Feature:*
+*Auto newline to &lt;br&gt; Feature:*
 
-If expanded, all newlines are converted to <br>
+If expanded, all newlines are converted to &lt;br&gt;
 Turn off nl2br content by using
 	dd-text-collapse-nl2br="false"
